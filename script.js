@@ -20,7 +20,25 @@ const getUser = async (id) => {
 const userId = 1
 
 Promise.all([getUser(userId),getPosts(userId)]).then(
-    resp => console.log("Respuesta",resp)
+    resp => {
+        // console.log("Respuesta",resp)
+        const user = resp[0]
+        const posts = resp[1]
+
+        // const userName = user.name
+        // const userAddress = user.address
+
+        // console.log(user)
+        // console.log(user.name)
+        // console.log(userAddress.city)
+        console.log(posts)
+
+        posts.forEach(post => {
+            console.log(post.title)
+            console.log(post.body)
+            console.log("-----")
+        });
+    }
     
 ).catch(
     error => console.log("Error",error)
